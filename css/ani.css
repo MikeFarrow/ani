@@ -1,0 +1,20 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+  padding-top: 70px;
+  padding-left: 20px;
+  padding-right: 35px;
+}
+
+/* Colour pallete */
+.colpal div{
+	width: 21px; 
+	height: 21px;
+	padding: 5px;
+}

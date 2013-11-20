@@ -1,0 +1,35 @@
+<table><tr><td>
+	<div ng-show="showEdN">
+		<form ng-submit="upAName({{iEd}})">
+			<p>Rename the animation</p>
+			<input type="text" ng-model="edName"  size="30" placeholder="new animation name" required >
+			<input class="btn-primary" type="submit" value="Change">
+		</form>
+			<br/><button ng-click="playDat({{iEd}})" class="btn btn-primary ">Play</button>
+			<button ng-click="showEd()" class="btn btn-primary ">Edit</button>
+			<button ng-click="tstDat()" class="btn btn-primary ">Test</button>
+			<p/>
+	</div>
+
+	<div id='mmsg'>{{msg}}</div>
+	<ul class="list-group">
+		<li ng-repeat="anim in oAnims.aDAn track by anim.iD" class="list-group-item">
+			<a ng-click="edAName({{anim.iD}})" href=''>{{anim.name}}</a>
+		</li>
+	</ul>
+
+	<div ng-show="showAdd">
+		<form ng-submit="addAnim()">
+			<p>Add a new animation</p>
+			<input type="text" ng-model="animName"  size="30" placeholder="new animation name" required >
+			<input class="btn-primary" type="submit" value="add"> 
+		</form>
+	</div>
+
+</td>
+<td>
+	<!-- A canvas tag is required for Fabric.js -->
+	<div ng-show="showCanv">
+		<canvas id="c" width="500" height="400"  style="border:1px solid black;" ></canvas>
+	</div>
+</td></tr></table>     

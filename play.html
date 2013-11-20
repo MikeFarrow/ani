@@ -1,0 +1,19 @@
+<table><tr><td>
+	<!-- A canvas tag is required for Fabric.js -->
+	<canvas id="c" width="500" height="400"  style="border:1px solid black;" ></canvas>
+	<button ng-click="showHom()" class="btn btn-primary" >Home</button>
+	<button ng-click="initDat()" class="btn btn-primary" >Init</button>
+	<button ng-click="playDat()" class="btn btn-primary" >Play</button>
+	<button ng-click="newRec('rect')" class="btn btn-primary" >Rect</button>
+	<button ng-click="newRec('circ')" class="btn btn-primary" >Circle</button>
+	<button ng-click="newRec('elli')" class="btn btn-primary" >Ellipse</button>
+	<button ng-click="newRec('tria')" class="btn btn-primary" >Triangle</button>
+	<button ng-click="newRec('line')" class="btn btn-primary" >Line</button>
+
+	<!-- Tag for the color picker -->
+	<ng-color-picker model-object="boxes" model-property="color"></ng-color-picker>
+</td>
+<td style="vertical-align:top">
+	<input type="text" ng-model="cTxt"  size="20" placeholder="add text here"><br/>
+	<button ng-click="newTxt()" class="btn btn-primary" >Text</button>
+</td></tr></table>
