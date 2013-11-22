@@ -6,14 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="Mike Farrow">
-	<!-- Latest compiled and minified CSS -->
+
+	<!-- Latest compiled and minified Bootstrap CSS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<!-- Custom styles for this template -->
 	<link href="css/ani.css" rel="stylesheet">
 
-	<script src="js/angular.js"></script>
-	<script src="js/all.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script><!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="js/vndr/angular.js"></script>
+	<!-- Angular resource for data fetches -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
+	<!-- My cut of the accordian from angular.ui.bootstrap3_collapse -->
+	<script src="js/vndr/ui.accord.js"></script>
+	<script src="js/vndr/all.js"></script><!-- Fabric JS local -->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.2.0/fabric.all.min.js"></script>-->
 </head>
 
@@ -39,12 +44,10 @@
 		</div>
 	</div>
 
+	<!-- Templates go in here -->
 	<div data-ng-view="">	</div>
+
 </body>
-	<!--
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	-->
 	<script src="js/app.js"></script>
 	<script src="js/Cedit.js"></script>
 	<script src="js/Splay.js"></script>

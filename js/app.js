@@ -1,4 +1,4 @@
-var myap = angular.module('myap', ['directive.colorPicker', 'ngResource']);
+var myap = angular.module('myap', ['directive.colorPicker', 'ngResource', 'ui.bootstrap.accordion']);
 
 //This configures the routes 
 myap.config(function ($routeProvider, $locationProvider) {
@@ -18,7 +18,7 @@ myap.config(function ($routeProvider, $locationProvider) {
         .otherwise({ redirectTo: '/' });
 
 	// Remove # from url paths
-	//$locationProvider.html5Mode(true);
+	$locationProvider.html5Mode(false);
 	//$locationProvider.hashPrefix('!');
 
 });

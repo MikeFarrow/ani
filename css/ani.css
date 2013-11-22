@@ -18,3 +18,5 @@ body {
 	height: 21px;
 	padding: 5px;
 }
+
+.accordion a { cursor: pointer; }
