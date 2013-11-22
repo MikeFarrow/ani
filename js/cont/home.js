@@ -21,6 +21,7 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 			//$scope.showAdd = true;
 		} else {
 			$scope.msg = $scope.oAnims.iLID + ' saved animations found:';
+			console.log(oAnims.aDAn);
 		}
 	}
 

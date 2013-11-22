@@ -1,31 +1,39 @@
 <table><tr><td>
-	<div ng-show="showEdN">
-		<form ng-submit="upAName({{iEd}})">
-			<p>Rename the animation</p>
-			<input type="text" ng-model="edName"  size="30" placeholder="new animation name" required >
-			<input class="btn-primary" type="submit" value="Change">
-		</form>
-			<br/><button ng-click="playDat({{iEd}})" class="btn btn-primary ">Play</button>
-			<button ng-click="showEd()" class="btn btn-primary ">Edit</button>
-			<button ng-click="tstDat()" class="btn btn-primary ">Test</button>
-			<p/>
-	</div>
 
-	<div id='mmsg'>{{msg}}</div>
-	<ul class="list-group">
-		<li ng-repeat="anim in oAnims.aDAn track by anim.iD" class="list-group-item">
-			<a ng-click="edAName({{anim.iD}})" href=''>{{anim.name}}</a>
-		</li>
-	</ul>
+	<accordion  close-others="false">
+		<accordion-group heading="Add new animation" is-open="showAdd">
+			<form ng-submit="addAnim()">
+				<p>Add a new animation</p>
+				<input type="text" ng-model="animName"  size="30" placeholder="new animation name" required >
+				<input class="btn-primary" type="submit" value="add"> 
+			</form>
 
-	<div ng-show="showAdd">
-		<form ng-submit="addAnim()">
-			<p>Add a new animation</p>
-			<input type="text" ng-model="animName"  size="30" placeholder="new animation name" required >
-			<input class="btn-primary" type="submit" value="add"> 
-		</form>
-	</div>
+		</accordion-group>
 
+		<accordion-group heading="Local saved animations">
+			<!-- Edit name and animation options -->
+			<div ng-show="showEdN">
+				<form ng-submit="upAName({{iEd}})">
+					<p>Rename the animation</p>
+					<input type="text" ng-model="edName"  size="30" placeholder="new animation name" required >
+					<input class="btn-primary" type="submit" value="Change">
+				</form>
+				<br/><button ng-click="playDat({{iEd}})" class="btn-primary ">Play</button>
+				<button ng-click="showEd()" class="btn-primary ">Edit</button>
+				<button ng-click="tstDat()" class="btn-primary ">Test</button>
+				<p/>
+			</div>
+
+			<!-- List local animations -->
+			<div id='mmsg'>{{msg}}</div>
+			<ul class="list-group">
+				<li ng-repeat="anim in oAnims.aDAn track by anim.iD | orderBy:-anim.iD" class="list-group-item">
+					<a ng-click="edAName({{anim.iD}})" href=''>{{anim.name}}</a>
+				</li>
+			</ul>
+
+		</accordion-group>
+	</accordion>
 </td>
 
 <td>
@@ -35,17 +43,3 @@
 	</div>
 </td></tr></table> 
 
-<div>
-<accordion  close-others="true">
-	<accordion-group heading="Add new items to go here">
-		<p>The body of the accordion group grows to fit the contents</p>
-
-	</accordion-group>
-	<accordion-group>
-		<accordion-heading>
-		Local saved animations
-		</accordion-heading>
-		This is just some content to illustrate fancy headings.
-	</accordion-group>
-</accordion>
-</div>
