@@ -7,12 +7,12 @@ myap.config(function ($routeProvider, $locationProvider) {
         .when('/',
             {
                 controller: 'homeCont',
-                templateUrl: 'home.html'
+                templateUrl: 'template/home.html'
             })
-        .when('/play/',
+        .when('/edit/',
             {
                 controller: 'editCont',
-                templateUrl: 'play.html'
+                templateUrl: 'template/edit.html'
             })
 
         .otherwise({ redirectTo: '/' });
