@@ -27,7 +27,7 @@
 			<!-- List local animations -->
 			<div id='mmsg'>{{msg}}</div>
 			<ul class="list-group">
-				<li ng-repeat="anim in oAnims.aDAn track by anim.iD | orderBy:-anim.iD" class="list-group-item">
+				<li ng-repeat="anim in oAnims.aDAn | orderBy:'iD':true" class="list-group-item">
 					<a ng-click="edAName({{anim.iD}})" href=''>{{anim.name}}</a>
 				</li>
 			</ul>
