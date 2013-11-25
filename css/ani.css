@@ -19,4 +19,5 @@ body {
 	padding: 5px;
 }
 
-.accordion a { cursor: pointer; }
+/* Put items at top of table cell */
+td.vtop {vertical-align:top}

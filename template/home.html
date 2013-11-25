@@ -1,6 +1,6 @@
-<table><tr><td>
+<table><tr><td class='vtop' style="min-width: 250px;">
 
-	<accordion  close-others="false">
+	<accordion  close-others="true">
 		<accordion-group heading="Add new animation" is-open="showAdd">
 			<form ng-submit="addAnim()">
 				<p>Add a new animation</p>
@@ -33,10 +33,15 @@
 			</ul>
 
 		</accordion-group>
+
+		<accordion-group heading="Sample animations">
+			<p>Coming soon</p>
+		</accordion-group>
+
 	</accordion>
 </td>
 
-<td>
+<td class='vtop' >
 	<!-- A canvas tag is required for Fabric.js -->
 	<div ng-show="showCanv">
 		<canvas id="c" width="500" height="400"  style="border:1px solid black;" ></canvas>
