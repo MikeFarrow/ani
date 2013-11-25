@@ -8,3 +8,8 @@ It is built using:
 
 AngularJS to organise the code
 FabricJS to manage the drawing canvas 
+
+Roadmap:
+- List of sample files, with play
+- Tidy up colour palette, separate template
+- Undo last action
