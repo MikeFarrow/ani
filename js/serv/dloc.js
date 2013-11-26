@@ -8,9 +8,15 @@ It saves data to a local data store after stringifying it
 */
 
 // This service returns a JSON file from the server
-myap.factory('jsonServ', function($resource) {
-  return $resource('dat/tst.json');
-});
+// the service takes a parameter fileName for the json server file
+myap.factory('jsonServ', ['$resource',
+	function($resource){
+		return $resource('dat/:fileName.json', {}, {
+			query: {method:'GET', params:{fileName:'djson'}, isArray:true}
+	});
+}]);
+
+
 
 myap.service('locDat', function () {
 

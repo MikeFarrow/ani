@@ -21,18 +21,15 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 			//$scope.showAdd = true;
 		} else {
 			$scope.msg = $scope.oAnims.iLID + ' saved animations found:';
-			console.log(oAnims.aDAn);
+			//console.log(oAnims.aDAn);
 		}
-	}
-
-	// Get some remote data
-	$scope.tstDat = function(){
-		jsonServ.get(function(data){
-			//$scope.name = data.name;
-			console.log(data);
-			playAn.runAni(data, $scope.canv);
+		// Get a list of sample files from a json file 
+		$scope.oSamp = jsonServ.get({fileName: 'files'}, function(jdat) {
+			//	console.log('files'); 
+			console.log(jdat);
 		});
 	}
+
 
 	// Switch to the editor screen
 	$scope.showEd = function(){
