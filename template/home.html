@@ -35,7 +35,11 @@
 		</accordion-group>
 
 		<accordion-group heading="Sample animations">
-			<p>Coming soon</p>
+			<ul class="list-group">
+				<li ng-repeat="samp in oSamp.aDAn | orderBy:'iD'" class="list-group-item">
+					<a ng-click="showSamp('{{samp.name}}')" href=''>{{samp.desc}}</a>
+				</li>
+			</ul>
 		</accordion-group>
 
 	</accordion>

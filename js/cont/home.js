@@ -24,12 +24,22 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 			//console.log(oAnims.aDAn);
 		}
 		// Get a list of sample files from a json file 
-		$scope.oSamp = jsonServ.get({fileName: 'files'}, function(jdat) {
-			//	console.log('files'); 
-			console.log(jdat);
+		$scope.getDat = jsonServ.get({fileName: 'files'}, function(jdat) {
+			//console.log(jdat);
+			$scope.oSamp = jdat;
 		});
 	}
 
+
+	// Switch to the editor screen
+	$scope.showSamp = function(fname){
+		//console.log(fname);
+		$scope.getDat = jsonServ.get({fileName: fname}, function(jdat) {
+			//console.log(jdat);
+			$scope.showCanv = true;
+			playAn.runAni(jdat, $scope.canv);
+		});
+	}
 
 	// Switch to the editor screen
 	$scope.showEd = function(){
