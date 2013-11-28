@@ -10,10 +10,11 @@ AngularJS to organise the code
 FabricJS to manage the drawing canvas 
 
 Roadmap:
-- Tidy up colour palette, separate template
+- Parametise edit screen
 - Undo last action
-- Clone sample file to local
+- Clone sample file to local saved files
 - Create an animation on how to create an animation
 
 Done:
 v - List of sample files, with play
+v - Tidy up colour palette, separate template
