@@ -16,5 +16,6 @@ Roadmap:
 - Create an animation on how to create an animation
 
 Done:
+v - Change home screen to static canvas
 v - List of sample files, with play
 v - Tidy up colour palette, separate template

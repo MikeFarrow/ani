@@ -11,7 +11,7 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 		$scope.showEdN = false;
 
 		// create a wrapper around native canvas element (with id="c")
-		$scope.canv = new fabric.Canvas('c');
+		$scope.canv = new fabric.StaticCanvas('c');
 
 		// Runs the data initialisation routine
 		$scope.oAnims = locDat.getAnims();
