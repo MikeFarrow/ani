@@ -9,9 +9,8 @@ myap.controller('editCont',
 	var canv = new fabric.Canvas('c');
 
 	// Get data from local storage
-	console.log('Param:');
-	console.log($routeParams.anid);
-	var oAnSeq = locDat.getAnim();
+	// Use id passed by routing parameter for bookmarks
+	var oAnSeq = locDat.getAnim($routeParams.anid);
 
 	// Run the event stack
 	playAn.runAni(oAnSeq, canv);

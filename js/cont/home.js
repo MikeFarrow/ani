@@ -1,5 +1,7 @@
 // Controller for the home screen
-myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonServ) {
+myap.controller('homeCont', 
+	['$scope', '$location', 'locDat', 'playAn', 'jsonServ', 
+	function ($scope, $location, locDat, playAn, jsonServ) {
 
 	init();
 	// Initialises the home controller screen
@@ -31,9 +33,9 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 	}
 
 
-	// Switch to the editor screen
+	// Show the sample animations
 	$scope.showSamp = function(fname){
-		//console.log(fname);
+		// Get the data from the server
 		$scope.getDat = jsonServ.get({fileName: fname}, function(jdat) {
 			//console.log(jdat);
 			$scope.showCanv = true;
@@ -43,23 +45,20 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 
 	// Switch to the editor screen
 	$scope.showEd = function(iD){
-		//console.log('iD: ' + iD);
-		//console.log($scope.iEd);
-		$location.path('edit/' + $scope.iEd); // path not hash
+		// Switch location and pass id as a parameter
+		$location.path('edit/' + $scope.iEd); 
 	}
 
 	// Plays animation
 	$scope.playDat = function(){
-
 		playAni();
 	}
 
 
 	// Play the animation data
 	function playAni(){
-
 		// Get the animation data
-		var oAnSeq = locDat.getAnim();
+		var oAnSeq = locDat.getAnim($scope.iEd);
 		// Show canvas and run the event stack
 		$scope.showCanv = true;
 		playAn.runAni(oAnSeq, $scope.canv);
@@ -82,6 +81,7 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 
 		$scope.showAdd = false;
 		$scope.showEdN = true;
+		// Create ref to make data easier to work with
 		var aDat = $scope.oAnims.aDAn;
 		// Loop through the animations
 		for (var i = 0, len = aDat.length; i < len; i++) {
@@ -89,11 +89,10 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 			if(aDat[i].iD === iD){
 				// Get the animation name and id
 				$scope.edName = aDat[i].name;
-				$scope.iEd = i;
 			}
 		}
-		// Set the current active animation in local data
-		locDat.setCurAni($scope.oAnims.aDAn[$scope.iEd].iD);
+		// Save the current active animation
+		$scope.iEd = iD;
 		// Play the animation
 		playAni();
 
@@ -117,4 +116,4 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 
 	}
 
-});
+}]);

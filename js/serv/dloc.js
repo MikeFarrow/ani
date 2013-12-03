@@ -23,10 +23,13 @@ myap.service('locDat', function () {
 	// Datastore variable name constants
 	var CAMC = 'animsgcom', CAMDC = 'animsgdotcom';
 	// Current animation name, used to keep track between screens
-	var cAName;
 
-	this.getAnim = function () {
 
+	// Used by play an edit to retrieve an animation file by ID
+	this.getAnim = function (iD) {
+
+		// Build the animation name
+		cAName = CAMC + padTo3(iD);
 		// Check if the data store exists
 		if (localStorage.getItem(cAName) !== null) {
 			// Get data from local store
@@ -37,12 +40,7 @@ myap.service('locDat', function () {
 		}
 	};
 
-	// Set the current animation name
-	this.setCurAni = function (iD) {
-		// Build the animation name
-		cAName = CAMC + padTo3(iD);
-	}
-
+	// Local function used to build file names
 	function padTo3(number) {
 		if (number<=999) { number = ("00"+number).slice(-3); }
 		return number;
