@@ -42,8 +42,10 @@ myap.controller('homeCont', function ($scope, $location, locDat, playAn, jsonSer
 	}
 
 	// Switch to the editor screen
-	$scope.showEd = function(){
-		$location.path('edit'); // path not hash
+	$scope.showEd = function(iD){
+		//console.log('iD: ' + iD);
+		//console.log($scope.iEd);
+		$location.path('edit/' + $scope.iEd); // path not hash
 	}
 
 	// Plays animation

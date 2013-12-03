@@ -9,6 +9,11 @@ myap.config(function ($routeProvider, $locationProvider) {
                 controller: 'homeCont',
                 templateUrl: 'template/home.html'
             })
+        .when('/edit/:anid',
+            {
+                controller: 'editCont',
+                templateUrl: 'template/edit.html'
+            })
         .when('/edit/',
             {
                 controller: 'editCont',

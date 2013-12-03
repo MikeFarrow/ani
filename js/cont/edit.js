@@ -1,5 +1,7 @@
 // Controller for the edit screen
-myap.controller('editCont', function ($scope, $location, locDat, playAn, trckDif, mntCanv) {
+myap.controller('editCont', 
+	['$scope','$routeParams', '$location', 'locDat', 'playAn', 'trckDif', 'mntCanv', 
+	function ($scope, $routeParams, $location, locDat, playAn, trckDif, mntCanv) {
 
 	$scope.boxes = {'color': 'red'};
 
@@ -7,6 +9,8 @@ myap.controller('editCont', function ($scope, $location, locDat, playAn, trckDif
 	var canv = new fabric.Canvas('c');
 
 	// Get data from local storage
+	console.log('Param:');
+	console.log($routeParams.anid);
 	var oAnSeq = locDat.getAnim();
 
 	// Run the event stack
@@ -102,4 +106,4 @@ myap.controller('editCont', function ($scope, $location, locDat, playAn, trckDif
 		playAn.runAni(oAnSeq, canv);
 	}
 	
-});
+}]);
