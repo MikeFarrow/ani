@@ -27,3 +27,16 @@ myap.config(function ($routeProvider, $locationProvider) {
 	//$locationProvider.hashPrefix('!');
 
 });
+
+// This function returns the item in an array that matches a property
+myap.filter('getByProp', function() {
+    return function(propertyName, propertyValue, collection) {
+        var i=0, len=collection.length;
+        for (; i<len; i++) {
+            if (collection[i][propertyName] == +propertyValue) {
+                return collection[i];
+            }
+        }
+        return null;
+    }
+});

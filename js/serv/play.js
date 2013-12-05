@@ -9,6 +9,8 @@ It uses a recursive function to play the animation because it relies on an asycr
 myap.service('playAn', function (mntCanv) {
 
 
+	var oAE;
+
 	// Animation playback loop
 	this.runAni = function (oAnSeq, canv) {
 

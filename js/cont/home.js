@@ -1,7 +1,7 @@
 // Controller for the home screen
 myap.controller('homeCont', 
-	['$scope', '$location', 'locDat', 'playAn', 'jsonServ', 
-	function ($scope, $location, locDat, playAn, jsonServ) {
+	['$scope', '$location', '$filter', 'locDat', 'playAn', 'jsonServ', 
+	function ($scope, $location, $filter, locDat, playAn, jsonServ) {
 
 	init();
 	// Initialises the home controller screen
@@ -11,23 +11,27 @@ myap.controller('homeCont',
 		$scope.showCanv = false;
 		$scope.showAdd = true;
 		$scope.showEdN = false;
+		$scope.mod = {anName: '', edName: ''};
+
 
 		// create a wrapper around native canvas element (with id="c")
 		$scope.canv = new fabric.StaticCanvas('c');
 
 		// Runs the data initialisation routine
 		$scope.oAnims = locDat.getAnims();
+		// Get the animation count
+		$scope.anCnt = $scope.oAnims.aDAn.length;
 		// Runs the animation
-		if($scope.oAnims.iLID === 0){
+		if($scope.anCnt === 0){
 			$scope.msg = 'No saved animations found:';
 			//$scope.showAdd = true;
 		} else {
-			$scope.msg = $scope.oAnims.iLID + ' saved animations found:';
-			//console.log(oAnims.aDAn);
+			// Or show the number of saved animations
+			$scope.msg = $scope.anCnt + ' saved animations found:';
 		}
 		// Get a list of sample files from a json file 
 		$scope.getDat = jsonServ.get({fileName: 'files'}, function(jdat) {
-			//console.log(jdat);
+			// Store the sample names to a var
 			$scope.oSamp = jdat;
 		});
 	}
@@ -49,7 +53,7 @@ myap.controller('homeCont',
 		$location.path('edit/' + $scope.iEd); 
 	}
 
-	// Plays animation
+	// Plays animation when button clicked
 	$scope.playDat = function(){
 		playAni();
 	}
@@ -64,55 +68,54 @@ myap.controller('homeCont',
 		playAn.runAni(oAnSeq, $scope.canv);
 	}
 
+
 	// Update an animation name
 	$scope.upAName = function(iEd) {
 
-		// Add it to the data 
-		$scope.oAnims.aDAn[iEd].name = $scope.edName;
+		// Get the record to update
+		var oAn = $filter('getByProp')('iD', iEd, $scope.oAnims.aDAn);
+		// Set the name property
+		oAn.name = $scope.mod.edName;
 		// Save local data
 		locDat.savDatA($scope.oAnims);
-		$scope.showAdd = true;
-		$scope.showEdN = false;
 	}
 
 
-	// Add shape to canvas
+	// Edit a local animation 
 	$scope.edAName = function(iD) {
 
 		$scope.showAdd = false;
 		$scope.showEdN = true;
 		// Create ref to make data easier to work with
 		var aDat = $scope.oAnims.aDAn;
-		// Loop through the animations
-		for (var i = 0, len = aDat.length; i < len; i++) {
-			// If the ids match
-			if(aDat[i].iD === iD){
-				// Get the animation name and id
-				$scope.edName = aDat[i].name;
-			}
-		}
-		// Save the current active animation
+		// Get the record to edit
+		var oAn = $filter('getByProp')('iD', iD, aDat);
+		// Get the animation name and id
+		$scope.mod.edName = oAn.name;
+		// Save the ID of the current active animation
 		$scope.iEd = iD;
 		// Play the animation
 		playAni();
-
 	}
+
 
 	// Add a new animation
 	$scope.addAnim = function() {
 
+		//console.log($scope.animName);
+		//return;
 		// Create the template
-		var oAI = {name: $scope.animName};
+		var oAI = {name: $scope.mod.anName};
 		// Increment object counter and save 
 		var iLID = $scope.oAnims.iLID + 1;
 		$scope.oAnims.iLID = iLID; oAI.iD = iLID;
 		// Add it to the data 
 		$scope.oAnims.aDAn.push(oAI);
 		// Clear the add box
-		$scope.animName = '';
+		$scope.mod.anName = '';
 		// Save local data
-		locDat.savDatA(oAnims);
-		$scope.msg = $scope.oAnims.iLID + ' saved animations found:';
+		locDat.savDatA($scope.oAnims);
+		$scope.msg = $scope.oAnims.length + ' saved animations found:';
 
 	}
 

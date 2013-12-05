@@ -4,7 +4,7 @@
 		<accordion-group heading="Add new animation" is-open="showAdd">
 			<form ng-submit="addAnim()">
 				<p>Add a new animation</p>
-				<input type="text" ng-model="animName"  size="30" placeholder="new animation name" required >
+				<input type="text" ng-model="mod.anName"  size="30" placeholder="new animation name" required >
 				<input class="btn-primary" type="submit" value="add"> 
 			</form>
 
@@ -15,7 +15,7 @@
 			<div ng-show="showEdN">
 				<form ng-submit="upAName({{iEd}})">
 					<p>Rename the animation</p>
-					<input type="text" ng-model="edName"  size="30" placeholder="new animation name" required >
+					<input type="text" ng-model="mod.edName"  size="30" placeholder="new animation name" required >
 					<input class="btn-primary" type="submit" value="Change">
 				</form>
 				<br/><button ng-click="playDat({{iEd}})" class="btn-primary ">Play</button>

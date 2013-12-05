@@ -82,7 +82,7 @@ myap.service('trckDif', function (locDat) {
 		var j = 0; // Object counter
 
 		// Loop through the data items (to find changed item)
-		for (i = 0; i < aD.length; ++i) {
+		for (var i = 0; i < aD.length; ++i) {
 			// Is it an add object item (ignore animation events)
 			if(aD[i].cAct == 'ad'){
 				// Does ID match the changed item

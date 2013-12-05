@@ -22,6 +22,8 @@ myap.service('locDat', function () {
 
 	// Datastore variable name constants
 	var CAMC = 'animsgcom', CAMDC = 'animsgdotcom';
+	var oAnims, cAName;
+
 	// Current animation name, used to keep track between screens
 
 
@@ -95,7 +97,7 @@ myap.service('locDat', function () {
 	// Initialise data method
 	this.inDat = function () {
 		// Get the initialise data from onject literal
-		oAnSeq = initDat();
+		var oAnSeq = initDat();
 		// Save to local storage
 		saveDat(oAnSeq);
 
