@@ -10,7 +10,6 @@ AngularJS to organise the code
 FabricJS to manage the drawing canvas 
 
 Roadmap:
-- Fix bug renaming animations
 - Undo last action
 - Clone sample file to local saved files
 - Create an animation on how to create an animation
@@ -19,6 +18,7 @@ Roadmap:
 - Find the gem colour image
 
 Done:
+v - Fix bug renaming animations
 v - Parametise edit screen
 v - Change home screen to static canvas
 v - List of sample files, with play
