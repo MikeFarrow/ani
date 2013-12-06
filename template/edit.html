@@ -1,4 +1,4 @@
-<table><tr><td>
+<table><tr><td class='vtop' >
 	<!-- A canvas tag is required for Fabric.js -->
 	<canvas id="c" width="500" height="400"  style="border:1px solid black;" ></canvas>
 	<button ng-click="showHom()" class="btn btn-primary" >Home</button>
@@ -14,6 +14,21 @@
 	<ng-color-picker model-object="boxes" model-property="color"></ng-color-picker>
 </td>
 <td class='vtop' >
-	<input type="text" ng-model="cTxt"  size="20" placeholder="add text here"><br/>
-	<button ng-click="newTxt()" class="btn btn-primary" >Text</button>
+	<div>
+		<input type="text" ng-model="cTxt"  size="20" placeholder="add text here"><br/>
+		<button ng-click="newTxt()" class="btn btn-primary" >Text</button>
+	</div>
+	<div class='guide'>
+		<h3>Usage notes:</h3>
+		<ul>
+			<li>Choose a colour from the swatch along the bottom</li>
+			<li>Click a shape to add to the screen or</li>
+			<li>Enter some text in the top right and click the text button</li>
+			<li>Click the new item to move, resize or rotate</li>
+			<li>Press play to see your actions replayed</li>
+			<li>No need to save anything it is automatic</li>
+			<li>Press init to initialise the screen and start again</li>
+			<li>The home button takes you bak to the start screen</li>
+		</ul>
+	</div>
 </td></tr></table>

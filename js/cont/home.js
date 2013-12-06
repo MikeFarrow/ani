@@ -10,6 +10,7 @@ myap.controller('homeCont',
 		$scope.msg = 'hello';
 		$scope.showCanv = false;
 		$scope.showAdd = true;
+		$scope.showSav = false;
 		$scope.showEdN = false;
 		$scope.mod = {anName: '', edName: ''};
 
@@ -102,8 +103,6 @@ myap.controller('homeCont',
 	// Add a new animation
 	$scope.addAnim = function() {
 
-		//console.log($scope.animName);
-		//return;
 		// Create the template
 		var oAI = {name: $scope.mod.anName};
 		// Increment object counter and save 
@@ -115,7 +114,10 @@ myap.controller('homeCont',
 		$scope.mod.anName = '';
 		// Save local data
 		locDat.savDatA($scope.oAnims);
-		$scope.msg = $scope.oAnims.length + ' saved animations found:';
+		$scope.msg = $scope.oAnims.aDAn.length + ' saved animations found:';
+		// Close add and show saved animations
+		$scope.showAdd = false;
+		$scope.showSav = true;
 
 	}
 

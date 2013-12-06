@@ -21,3 +21,10 @@ body {
 
 /* Put items at top of table cell */
 td.vtop {vertical-align:top}
+
+.guide > h3, .guide li, .guide > p{
+	color: green;
+}
+div.guide{
+	padding: 20px;
+}
