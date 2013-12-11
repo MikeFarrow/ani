@@ -26,9 +26,23 @@ myap.controller('editCont',
 
 	// Undo the last action
 	$scope.unDo = function(){
-		var lstIt = oAnSeq.aDat[oAnSeq.aDat.length];
+		//var lstIt = oAnSeq.aDat[oAnSeq.aDat.length - 1];
+		var lstIt = oAnSeq.aDat.pop();
 		console.log('undo');
 		console.log(lstIt);
+		if(lstIt.cAct === 'an'){
+			console.log('animate');
+			// Unanimate the event
+			playAn.unAni(oAnSeq, canv, lstIt);
+		} else {
+			console.log('ad shape');
+			var iT = canv.getObjects().length - 1
+			console.log(iT);
+			var remIt = canv.getObjects();
+			console.log(remIt[iT]);
+			canv.remove(remIt[iT]);
+			//$scope.$apply();
+		}
 	}
 
 	// Switch to the home screen

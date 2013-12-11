@@ -11,6 +11,18 @@ myap.service('playAn', function (mntCanv) {
 
 	var oAE;
 
+
+	// Undo an animation item
+	this.unAni = function (oAnSeq, canv, lstIt) {
+		// Set the item number, option array and undo flag
+		oAE.iT = lstIt.iT;
+		oAE.oPt = lstIt.oPt.oX;
+		oAE.bUn = true;
+		// Animate the single event
+		anEv(oAE, oAnSeq.iTL, canv, oAnSeq)
+	}
+
+
 	// Animation playback loop
 	this.runAni = function (oAnSeq, canv) {
 
@@ -36,7 +48,7 @@ myap.service('playAn', function (mntCanv) {
 			// Check the action for add or animate
 			if (oAE.cAct == 'an') {
 				// Animate a shape
-				anEv(oAE, oAnSeq, canv);
+				anEv(oAE, oAnSeq.iTL, canv, oAnSeq);
 			} else {
 				// Add a shape
 				adEv(oAE, oAnSeq, canv);
@@ -55,16 +67,20 @@ myap.service('playAn', function (mntCanv) {
 
 
 	// Animate an event
-	function anEv(oAE, oAnSeq, canv) {
+	function anEv(oAE, iTL, canv, oAnSeq) {
 
 		// Animate the required canvas item
 		canv.item(oAE.iT).animate(oAE.oPt, {
-			duration: oAnSeq.iTL,
+			// Set the time lapse
+			duration: iTL,
 			onChange: canv.renderAll.bind(canv),
 
 			onComplete: function () {
 				// Do the next item when finished
-				runAn(oAnSeq, canv);
+				// (if not a single undo item)
+				if (!('bUn' in oAE)){
+					runAn(oAnSeq, canv);
+				}
 			}
 		})
 	}
