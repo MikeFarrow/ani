@@ -9,7 +9,7 @@ myap.service('trckDif', function (locDat) {
 	this.findDif = function(options, oAnSeq){
 
 		// Create ref to target and object for changes
-		var oT = options.target;  var oChng = {};
+		var oT = options.target;  var oChng = {oX:{}};
 
 		// Check the angle
 		chkAng(oT, oChng);
@@ -21,6 +21,7 @@ myap.service('trckDif', function (locDat) {
 			chkPos(oT, oChng);
 		}
 		upDat(oChng, oT, oAnSeq);
+		console.log(oAnSeq);
 	}
 
 
@@ -30,9 +31,9 @@ myap.service('trckDif', function (locDat) {
 		// If the angle is different to the original state angle
 		if(oT.angle !== oT.originalState.angle){
 
-			// Save the new angle
+			// Save the new angle and original
 			oChng.angle = oT.angle;
-			//logEvent('angle has changed to ' + oT.angle);
+			oChng.oX.angle = oT.originalState.angle;
 		}
 	}
 
@@ -42,16 +43,16 @@ myap.service('trckDif', function (locDat) {
 
 		// If the scaleX is different to the original state scaleX
 		if(oT.scaleX !== oT.originalState.scaleX){
-			// Save the new scaleX
+			// Save the new scaleX and original
 			oChng.scaleX = oT.scaleX;
-			//logEvent('ScaleX has changed to ' + oT.scaleX);
+			oChng.oX.scaleX = oT.originalState.scaleX;
 		}
 
 		// If the scaleY is different to the original state scaleY
 		if(oT.scaleY !== oT.originalState.scaleY){
-			// Save the new scaleY
+			// Save the new scaleY and original
 			oChng.scaleY = oT.scaleY;
-			//logEvent('scaleY has changed to ' + oT.scaleY);
+			oChng.oX.scaleY = oT.originalState.scaleY;
 		}
 	}
 
@@ -63,13 +64,13 @@ myap.service('trckDif', function (locDat) {
 		if(oT.top !== oT.originalState.top){
 			// Save the new top
 			oChng.top = oT.top;
-			//logEvent('top has changed to ' + oT.top);
+			oChng.oX.top = oT.originalState.top;
 		}
 		// If the left is different to the original state left
 		if(oT.left !== oT.originalState.left){
 			// Save the new left
 			oChng.left = oT.left;
-			//logEvent('left has changed to ' + oT.left);
+			oChng.oX.left = oT.originalState.left;
 		}
 	}
 

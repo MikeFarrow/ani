@@ -2,7 +2,7 @@ AniMsg.com
 
 Create animated messages for HTML5
 
-This is simple webb application which helps you to quickly create animated messages in a web browser.
+This is a simple web application which helps you to quickly create animated messages in a web browser.
 
 It is built using: 
 
@@ -12,6 +12,7 @@ FabricJS to manage the drawing canvas
 Roadmap:
 - Undo last action
 - Clone sample file to local saved files
+- Move add shape code to a separate service
 - Create an animation on how to create an animation
 - Change opacity of object to remove from view
 - Change colour of object

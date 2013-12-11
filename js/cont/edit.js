@@ -24,6 +24,13 @@ myap.controller('editCont',
 	})
 
 
+	// Undo the last action
+	$scope.unDo = function(){
+		var lstIt = oAnSeq.aDat[oAnSeq.aDat.length];
+		console.log('undo');
+		console.log(lstIt);
+	}
+
 	// Switch to the home screen
 	$scope.showHom = function(){
 		$location.path('home'); // path not hash
