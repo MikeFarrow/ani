@@ -10,10 +10,21 @@ myap.service('mntCanv', function (locDat) {
 
 
 	// Animation playback loop
+	this.delShpe = function (canv) {
+
+			// Get the number of canvas objects
+			var iT = canv.getObjects().length - 1;
+			// Get the canvas objects
+			var remIt = canv.getObjects();
+			// Remove the last item
+			canv.remove(remIt[iT]);
+	}
+
+
+	// Animation playback loop
 	this.addShpe = function (oAE, oAnSeq, canv) {
 
-		//console.log('add shape');
-		// Clear the canvas
+		// Add the shape
 		adEv(oAE, oAnSeq, canv);
 
 	}

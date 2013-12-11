@@ -13,13 +13,22 @@ myap.service('playAn', function (mntCanv) {
 
 
 	// Undo an animation item
-	this.unAni = function (oAnSeq, canv, lstIt) {
-		// Set the item number, option array and undo flag
-		oAE.iT = lstIt.iT;
-		oAE.oPt = lstIt.oPt.oX;
-		oAE.bUn = true;
-		// Animate the single event
-		anEv(oAE, oAnSeq.iTL, canv, oAnSeq)
+	this.unAni = function (oAnSeq, canv) {
+
+		// Remove the last item from the queue
+		var lstIt = oAnSeq.aDat.pop();
+		// If an animation event
+		if(lstIt.cAct === 'an'){
+			// Set the item number, option array and undo flag
+			oAE.iT = lstIt.iT;
+			oAE.oPt = lstIt.oPt.oX;
+			oAE.bUn = true;
+			// Animate the undo event
+			anEv(oAE, oAnSeq.iTL, canv, oAnSeq)
+		} else { // An add event
+			// Remove the shape from the canvas
+			mntCanv.delShpe(canv);
+		}
 	}
 
 

@@ -20,8 +20,8 @@ myap.service('trckDif', function (locDat) {
 			// Check if the position has changed
 			chkPos(oT, oChng);
 		}
+		// Update the animation change
 		upDat(oChng, oT, oAnSeq);
-		console.log(oAnSeq);
 	}
 
 
