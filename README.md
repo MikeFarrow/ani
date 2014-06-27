@@ -1,6 +1,6 @@
 AniMsg.com
 
-Create animated messages for HTML5
+## Create animated messages for HTML5
 
 This is a simple web application which helps you to quickly create animated messages in a web browser.
 
@@ -26,7 +26,7 @@ v - List of sample files, with play
 v - Tidy up colour palette, separate template
 
 
-The MIT License (MIT)
+### The MIT License (MIT)
 
 Copyright (c) 2013 Mike Farrow
 
